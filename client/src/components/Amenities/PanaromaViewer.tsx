@@ -1,6 +1,16 @@
 import { useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import * as THREE from "three";
+import {
+  Scene,
+  PerspectiveCamera,
+  WebGLRenderer,
+  SRGBColorSpace,
+  SphereGeometry,
+  TextureLoader,
+  MeshBasicMaterial,
+  Mesh,
+  MathUtils,
+} from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const PanoramaViewer = () => {
@@ -16,13 +26,13 @@ const PanoramaViewer = () => {
     if (!mountRef.current) return;
 
     // 1. Scene Setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const scene = new Scene();
+    const camera = new PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0, 0, 0.1); // Camera inside the sphere
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.outputColorSpace = SRGBColorSpace;
     mountRef.current.appendChild(renderer.domElement);
 
    // 2. Controls
@@ -52,15 +62,15 @@ const PanoramaViewer = () => {
     });
 
     // 3. Sphere Geometry & Texture
-    const geometry = new THREE.SphereGeometry(500, 60, 40);
+    const geometry = new SphereGeometry(500, 60, 40);
     geometry.scale(-1, 1, 1); // Crucial: Invert the sphere to see the texture from the inside
 
-    const textureLoader = new THREE.TextureLoader();
+    const textureLoader = new TextureLoader();
     const texture = textureLoader.load(panoramaImage);
-    texture.colorSpace = THREE.SRGBColorSpace;
-    const material = new THREE.MeshBasicMaterial({ map: texture });
+    texture.colorSpace = SRGBColorSpace;
+    const material = new MeshBasicMaterial({ map: texture });
     
-    const sphere = new THREE.Mesh(geometry, material);
+    const sphere = new Mesh(geometry, material);
     
     // Rotate the sphere 45 degrees on the Y (vertical) axis
     // Note: If this rotates it 45 degrees to the right instead of left, 
@@ -83,7 +93,7 @@ const PanoramaViewer = () => {
         // If camera is off-center vertically...
         if (Math.abs(currentPolar - targetPolarAngle) > 0.005) {
           // Calculate the smooth step toward the horizon
-          const newPolar = THREE.MathUtils.lerp(currentPolar, targetPolarAngle, 0.02);
+          const newPolar = MathUtils.lerp(currentPolar, targetPolarAngle, 0.02);
           
           // Adjust camera position directly instead of fighting the controls
           const radius = camera.position.distanceTo(controls.target);

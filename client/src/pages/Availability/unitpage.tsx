@@ -13,7 +13,7 @@ import downIcon from '../../assets/unit/down_icon.png';
 import bottomFloorNameImg from '../../assets/unit/Bottom_floor_name.png';
 import logo from '../../assets/logo.png';
 
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 import floorData from '../../data/floorData.json';
 
 // Using solid background color instead of image to match Media page
@@ -29,6 +29,107 @@ const zoomCoordinates: Record<string, { scale: number, x: number, y: number }> =
     "5th": { scale: 1.50, x: -43, y: 50 },
     "default": { scale: 1.5, x: 0, y: 0 } // Fallback
 };
+
+// Renders one room's rect/polygon hotspots. Memoized so hovering one room
+// doesn't force every other room's SVG elements to re-render.
+const RoomHotspotGroup = memo(function RoomHotspotGroup({
+    roomObj,
+    isHovered,
+    isActive,
+    onHover,
+    onLeave,
+    onSelect,
+}: {
+    roomObj: any;
+    isHovered: boolean;
+    isActive: boolean;
+    onHover: (name: string) => void;
+    onLeave: () => void;
+    onSelect: (name: string) => void;
+}) {
+    if (!roomObj.polygon && !roomObj.rectangles) return null;
+
+    const rectItems = roomObj.rectangles || roomObj.polygon || [];
+
+    let fillColor = 'transparent';
+    let strokeColor = 'transparent';
+    if (isHovered) {
+        fillColor = 'rgba(250, 146, 0, 0.6)';
+        strokeColor = 'rgba(197, 168, 128, 1)';
+    } else if (isActive) {
+        fillColor = 'rgba(197, 168, 128, 0.4)';
+        strokeColor = 'rgba(197, 168, 128, 0.8)';
+    }
+
+    const interactiveProps = {
+        className: "transition-all duration-300",
+        style: {
+            fill: fillColor,
+            stroke: strokeColor,
+            strokeWidth: 2,
+            cursor: 'pointer',
+            pointerEvents: 'auto' as const
+        },
+        onMouseEnter: () => onHover(roomObj.name),
+        onMouseLeave: () => onLeave(),
+        onClick: (e: React.MouseEvent) => {
+            e.stopPropagation();
+            onSelect(roomObj.name);
+        }
+    };
+
+    return (
+        <>
+            {rectItems.map((item: any) => {
+                // If we have polygon coordinates
+                if (item.polygon) {
+                    const coords = item.polygon.split(',').map(Number);
+                    // If it's a 2-point bounding box (x1, y1, x2, y2), draw as rect
+                    if (coords.length === 4) {
+                        const x = Math.min(coords[0], coords[2]);
+                        const y = Math.min(coords[1], coords[3]);
+                        const width = Math.abs(coords[2] - coords[0]);
+                        const height = Math.abs(coords[3] - coords[1]);
+                        return (
+                            <rect
+                                key={item._id || item.rect_Id || item.poly_Id}
+                                x={x}
+                                y={y}
+                                width={width}
+                                height={height}
+                                {...interactiveProps}
+                            />
+                        );
+                    }
+                    // Otherwise, render as polygon
+                    return (
+                        <polygon
+                            key={item._id || item.poly_Id}
+                            points={item.polygon}
+                            {...interactiveProps}
+                        />
+                    );
+                }
+
+                // If we have direct rect coordinates
+                if (item.x !== undefined && item.y !== undefined) {
+                    return (
+                        <rect
+                            key={item._id || item.rect_Id || item.poly_Id}
+                            x={item.x}
+                            y={item.y}
+                            width={item.width}
+                            height={item.height}
+                            {...interactiveProps}
+                        />
+                    );
+                }
+
+                return null;
+            })}
+        </>
+    );
+});
 
 export default function UnitPlanPage() {
     const { id } = useParams<{ id: string }>();
@@ -54,6 +155,10 @@ export default function UnitPlanPage() {
 
     const [imgSize3D, _setImgSize3D] = useState({ w: 2000, h: 1125 });
     const [hoveredRoom, setHoveredRoom] = useState<string | null>(null);
+
+    const handleRoomHover = useCallback((name: string) => setHoveredRoom(name), []);
+    const handleRoomLeave = useCallback(() => setHoveredRoom(null), []);
+    const handleRoomSelect = useCallback((name: string) => setActiveRoom(name), []);
 
     const containerRef = useRef<HTMLDivElement>(null);
     const minimapRef = useRef<HTMLDivElement>(null);
@@ -393,90 +498,17 @@ export default function UnitPlanPage() {
                                 className="absolute inset-0 w-full h-full pointer-events-none rounded-[20px]"
                                 preserveAspectRatio="xMidYMid meet"
                             >
-                                {currentUnit.sideContent?.map((roomObj: any) => {
-                                    // Support both 'rectangles' and legacy 'polygon' data shapes
-                                    if (!roomObj.polygon && !roomObj.rectangles) return null;
-
-                                    const isHovered = hoveredRoom === roomObj.name;
-                                    const isActive = activeRoom === roomObj.name;
-
-                                    const rectItems = roomObj.rectangles || roomObj.polygon || [];
-
-                                    return rectItems.map((item: any) => {
-                                        let fillColor = 'transparent';
-                                        let strokeColor = 'transparent';
-                                        if (isHovered) {
-                                            fillColor = 'rgba(250, 146, 0, 0.6)';
-                                            strokeColor = 'rgba(197, 168, 128, 1)';
-                                        } else if (isActive) {
-                                            fillColor = 'rgba(197, 168, 128, 0.4)';
-                                            strokeColor = 'rgba(197, 168, 128, 0.8)';
-                                        }
-
-                                        const interactiveProps = {
-                                            className: "transition-all duration-300",
-                                            style: {
-                                                fill: fillColor,
-                                                stroke: strokeColor,
-                                                strokeWidth: 2,
-                                                cursor: 'pointer',
-                                                pointerEvents: 'auto' as const
-                                            },
-                                            onMouseEnter: () => setHoveredRoom(roomObj.name),
-                                            onMouseLeave: () => setHoveredRoom(null),
-                                            onClick: (e: React.MouseEvent) => {
-                                                e.stopPropagation();
-                                                setActiveRoom(roomObj.name);
-                                            }
-                                        };
-
-                                        // If we have polygon coordinates
-                                        if (item.polygon) {
-                                            const coords = item.polygon.split(',').map(Number);
-                                            // If it's a 2-point bounding box (x1, y1, x2, y2), draw as rect
-                                            if (coords.length === 4) {
-                                                const x = Math.min(coords[0], coords[2]);
-                                                const y = Math.min(coords[1], coords[3]);
-                                                const width = Math.abs(coords[2] - coords[0]);
-                                                const height = Math.abs(coords[3] - coords[1]);
-                                                return (
-                                                    <rect
-                                                        key={item._id || item.rect_Id || item.poly_Id}
-                                                        x={x}
-                                                        y={y}
-                                                        width={width}
-                                                        height={height}
-                                                        {...interactiveProps}
-                                                    />
-                                                );
-                                            }
-                                            // Otherwise, render as polygon
-                                            return (
-                                                <polygon
-                                                    key={item._id || item.poly_Id}
-                                                    points={item.polygon}
-                                                    {...interactiveProps}
-                                                />
-                                            );
-                                        }
-
-                                        // If we have direct rect coordinates
-                                        if (item.x !== undefined && item.y !== undefined) {
-                                            return (
-                                                <rect
-                                                    key={item._id || item.rect_Id || item.poly_Id}
-                                                    x={item.x}
-                                                    y={item.y}
-                                                    width={item.width}
-                                                    height={item.height}
-                                                    {...interactiveProps}
-                                                />
-                                            );
-                                        }
-
-                                        return null;
-                                    });
-                                })}
+                                {currentUnit.sideContent?.map((roomObj: any) => (
+                                    <RoomHotspotGroup
+                                        key={roomObj.id || roomObj.name}
+                                        roomObj={roomObj}
+                                        isHovered={hoveredRoom === roomObj.name}
+                                        isActive={activeRoom === roomObj.name}
+                                        onHover={handleRoomHover}
+                                        onLeave={handleRoomLeave}
+                                        onSelect={handleRoomSelect}
+                                    />
+                                ))}
                             </svg>
 
                             {/* 4. Custom Slider Visuals (Line and Grab Handle) */}

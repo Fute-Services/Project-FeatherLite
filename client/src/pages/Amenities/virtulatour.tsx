@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronUp } from "lucide-react";
@@ -43,14 +43,14 @@ export default function Vr() {
   const viewerRef = useRef<any>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleSceneChange = (sceneId: string) => {
+  const handleSceneChange = useCallback((sceneId: string) => {
     if (viewerRef.current) {
       viewerRef.current.loadScene(sceneId);
       setCurrentScene(sceneId);
     }
-  };
+  }, []);
 
-  const createCustomHotspot = (hotspotDiv: HTMLElement, args: { text: string; next: string; rotation: number }) => {
+  const createCustomHotspot = useCallback((hotspotDiv: HTMLElement, args: { text: string; next: string; rotation: number }) => {
     hotspotDiv.classList.add('custom-hotspot-main');
 
     const img = document.createElement('img');
@@ -73,9 +73,9 @@ export default function Vr() {
     img.onclick = () => {
       handleSceneChange(args.next);
     };
-  };
+  }, [handleSceneChange]);
 
-  const tourConfig: any = {
+  const tourConfig: any = useMemo(() => ({
     default: {
       firstScene: "ext_entry_gate",
       autoLoad: true,
@@ -359,7 +359,7 @@ export default function Vr() {
         ],
       },
     },
-  };
+  }), [createCustomHotspot]);
 
 
   useEffect(() => {
