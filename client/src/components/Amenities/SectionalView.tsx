@@ -592,6 +592,7 @@ import rooftopLunchImg from "../../assets/amenities/popup/Rooftop Lunch cafe.jpe
 import servingKioskImg from "../../assets/amenities/popup/Serving Kiosk.jpg";
 // @ts-ignore
 import tableTennisImg from "../../assets/amenities/popup/Table Tennis.jpeg";
+import ledScreenVideo from "../../assets/LED Screeng.mp4";
 
 const popupImageMap: Record<string, string> = {
   "serving-kiosk": servingKioskImg,
@@ -604,6 +605,10 @@ const popupImageMap: Record<string, string> = {
   "double-height-lobbies": receptionImg,
   "cafe": cafeteriaImg,
   "outdoor-seating": outdoorSeatingImg,
+};
+
+const popupVideoMap: Record<string, string> = {
+  "3d-led-screen": ledScreenVideo,
 };
 
 
@@ -830,12 +835,21 @@ const SectionalView = () => {
   const navigate = useNavigate();
 
   const [activePopupImage, setActivePopupImage] = useState<string | null>(null);
+  const [activePopupVideo, setActivePopupVideo] = useState<string | null>(null);
   const [activePopupTitle, setActivePopupTitle] = useState<string>("");
 
   const handleHotspotClick = (amenityId: string, titleParts: string[]) => {
+    const matchedVideo = popupVideoMap[amenityId];
+    if (matchedVideo) {
+      setActivePopupVideo(matchedVideo);
+      setActivePopupImage(null);
+      setActivePopupTitle(titleParts.join(" "));
+      return;
+    }
     const matchedImg = popupImageMap[amenityId];
     if (matchedImg) {
       setActivePopupImage(matchedImg);
+      setActivePopupVideo(null);
       setActivePopupTitle(titleParts.join(" "));
     }
   };
@@ -1102,7 +1116,7 @@ const SectionalView = () => {
       </motion.div>
 
       {/* ── BACK BUTTON ────────────────────────────────────────────────── */}
-      {!activePopupImage && (
+      {!activePopupImage && !activePopupVideo && (
         <button
           onClick={() => navigate(-1)}
           aria-label="Go back"
@@ -1130,13 +1144,23 @@ const SectionalView = () => {
       )}
 
       {/* ── AMENITIES POPUP MODAL ────────────────────────────────────── */}
-      {activePopupImage && (
+      {(activePopupImage || activePopupVideo) && (
         <div className="absolute inset-0 z-50 bg-black flex items-center justify-center animate-in fade-in duration-300">
-          <img
-            src={activePopupImage}
-            alt={activePopupTitle}
-            className="w-full h-full object-cover"
-          />
+          {activePopupVideo ? (
+            <video
+              src={activePopupVideo}
+              autoPlay
+              controls
+              loop
+              className="w-full h-full object-contain"
+            />
+          ) : (
+            <img
+              src={activePopupImage!}
+              alt={activePopupTitle}
+              className="w-full h-full object-cover"
+            />
+          )}
 
           {/* Top-Center Header */}
           <div className="absolute top-8 left-1/2 -translate-x-1/2 z-30 pointer-events-none text-center">
@@ -1148,7 +1172,10 @@ const SectionalView = () => {
 
           {/* Close/Back Button in bottom-left */}
           <button
-            onClick={() => setActivePopupImage(null)}
+            onClick={() => {
+              setActivePopupImage(null);
+              setActivePopupVideo(null);
+            }}
             aria-label="Close Preview"
             className="absolute bottom-8 left-16 z-50 group"
           >
