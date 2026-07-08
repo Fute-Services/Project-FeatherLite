@@ -7,21 +7,21 @@ import pointSvg from "../../assets/Media/point.svg";
 
 // Icons for Technical Specifications
 // @ts-ignore
-import icon1 from "../../assets/Technical_specification/1 Structure & Space Efficiency 1.png";
+import icon1 from "../../assets/Technical_Specification/1 Structure & Space Efficiency 1.png";
 // @ts-ignore
-import icon2 from "../../assets/Technical_specification/2 Facade & Thermal Efficiency 1.png";
+import icon2 from "../../assets/Technical_Specification/2 Facade & Thermal Efficiency 1.png";
 // @ts-ignore
-import icon3 from "../../assets/Technical_specification/3 Access Control & Security 1.png";
+import icon3 from "../../assets/Technical_Specification/3 Access Control & Security 1.png";
 // @ts-ignore
-import icon4 from "../../assets/Technical_specification/4 Back of the House Facilities 1.png";
+import icon4 from "../../assets/Technical_Specification/4 Back of the House Facilities 1.png";
 // @ts-ignore
-import icon5 from "../../assets/Technical_specification/5 Digital Resilience 1.png";
+import icon5 from "../../assets/Technical_Specification/5 Digital Resilience 1.png";
 // @ts-ignore
-import icon6 from "../../assets/Technical_specification/6 BMS & Fire Safety 1.png";
+import icon6 from "../../assets/Technical_Specification/6 BMS & Fire Safety 1.png";
 // @ts-ignore
-import icon7 from "../../assets/Technical_specification/7 Utilities 1.png";
+import icon7 from "../../assets/Technical_Specification/7 Utilities 1.png";
 // @ts-ignore
-import icon8 from "../../assets/Technical_specification/8 Sustainability & Innovation 1.png";
+import icon8 from "../../assets/Technical_Specification/8 Sustainability & Innovation 1.png";
 
 const specificationsData = [
   {
