@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronUp } from "lucide-react";
 // @ts-ignore
 import backImg from "../../assets/unit/back.png";
 // @ts-ignore
@@ -39,6 +41,7 @@ export default function Vr() {
   const navigate = useNavigate();
   const [currentScene, setCurrentScene] = useState<string>("ext_entry_gate");
   const viewerRef = useRef<any>(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleSceneChange = (sceneId: string) => {
     if (viewerRef.current) {
@@ -436,6 +439,82 @@ export default function Vr() {
       </div>
 
       <div id="pan-container" className="w-full h-full"></div>
+
+      {/* Custom Level/Area Dropdown */}
+      <div className="absolute bottom-24 left-36 sm:left-[24%] lg:left-[18%]  z-50">
+        <div className="relative">
+          {/* Dropdown Button */}
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="flex items-center gap-3 px-8 py-2 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-colors shadow-lg"
+          >
+            <span>Levels</span>
+            <div className="bg-[#FF0000] rounded-full p-1 flex items-center justify-center">
+              <ChevronUp
+                size={16}
+                strokeWidth={3}
+                className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+              />
+            </div>
+          </button>
+
+          {/* Dropdown Menu */}
+          <AnimatePresence>
+            {isDropdownOpen && (
+              <>
+                {/* Click outside overlay */}
+                <div
+                  className="fixed inset-0 z-0 cursor-default"
+                  onClick={() => setIsDropdownOpen(false)}
+                />
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute bottom-[calc(100%+12px)]  transform -translate-x-1/2 flex flex-col gap-3 min-w-[140px] items-stretch z-10"
+                >
+                  <button
+                    onClick={() => {
+                      handleSceneChange('ext_drop_off_area');
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`w-full px-5 py-2 rounded-full text-sm font-medium shadow-lg transition-colors whitespace-nowrap ${currentScene === 'ext_drop_off_area'
+                      ? 'bg-[#FF0000] text-white'
+                      : 'bg-black/60 hover:bg-red-700/80 border border-white/10 text-white/80'
+                      }`}
+                  >
+                    Drop Off
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleSceneChange('int_reception_lobby');
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`w-full px-5 py-2 rounded-full text-sm font-medium shadow-lg transition-colors whitespace-nowrap ${currentScene === 'int_reception_lobby'
+                      ? 'bg-[#FF0000] text-white'
+                      : 'bg-black/60 hover:bg-red-700/80 border border-white/10 text-white/80'
+                      }`}
+                  >
+                    Reception
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleSceneChange('ext_terrace_cafe_1');
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`w-full px-5 py-2 rounded-full text-sm font-medium shadow-lg transition-colors whitespace-nowrap ${["ext_terrace_cafe_1", "ext_terrace_cafe_2", "ext_multipurpose_court"].includes(currentScene)
+                      ? 'bg-[#FF0000] text-white'
+                      : 'bg-black/60 hover:bg-red-700/80 border border-white/10 text-white/80'
+                      }`}
+                  >
+                    Terrace Level
+                  </button>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
 
       {/* Active Scene Display Label */}
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-50">

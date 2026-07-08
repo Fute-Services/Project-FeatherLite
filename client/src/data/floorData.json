@@ -1,0 +1,1622 @@
+
+
+[
+ {
+    "_id": "69fdc5877f2a57ca28953abf",
+    "level": "0",
+    "level1": "G",
+    "floorType": "Ground Floor",
+    "floorType1": "Ground Floor",
+    "area": "20,765 sq.ft",
+    "title": "Ground",
+    "title1": "0 Floor",
+    "title2": "Ground Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "791,442,791,474,634,475,495,473,377,474,378,440,496,443,634,443",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777980745/ground_b6laev.png",
+    
+    "image3D": "/floorPlan/ground_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "930,678,1031,771",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "69fdc5877f2a57ca28953ac1"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "69fdc5877f2a57ca28953ac0"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "782,471,831,491",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "69fdc5877f2a57ca28953ac3"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "69fdc5877f2a57ca28953ac2"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "786,450,830,475",
+            "title": "Unit1",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953ac5"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "69fdc5877f2a57ca28953ac4"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "837,476,886,496",
+            "title": "Unit 1",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953ac7"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1079,473,1123,496",
+            "title": "Unit 2",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953ac8"
+          }
+        ],
+        "hoveredColor": "",
+        "_id": "69fdc5877f2a57ca28953ac6"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "884,450,932,496",
+            "title": "Unit 1",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953aca"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1029,454,1081,492",
+            "title": "Unit 2",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953acb"
+          }
+        ],
+        "hoveredColor": "",
+        "_id": "69fdc5877f2a57ca28953ac9"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "930,448,982,494",
+            "title": "Unit 1",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953acd"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "983,452,1029,495",
+            "title": "Unit 2",
+            "color": "",
+            "_id": "69fdc5877f2a57ca28953ace"
+          }
+        ],
+        "hoveredColor": "",
+        "_id": "69fdc5877f2a57ca28953acc"
+      }
+    ],
+    "createdAt": "2026-05-08T11:14:15.984Z",
+    "updatedAt": "2026-05-11T11:52:03.107Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a01660e3f92ecb918ecfe03",
+    "level": "1",
+    "level1": "1st",
+    "floorType": "",
+    "floorType1": "Floor",
+    "area": "23,468 sq.ft",
+    "title": "First",
+    "title1": "1st Floor",
+    "title2": "First Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "789,401,790,443,677,442,495,442,378,439,378,400,494,405,677,404",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964018/first_floor_dpy1bd.png",
+    "image3D": "/floorPlan/1st_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "930,645,1033,736",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe05"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01660e3f92ecb918ecfe04"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "770,434,828,459",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe07"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1135,436,1181,461",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe08"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01660e3f92ecb918ecfe06"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "771,413,833,438",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe0a"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1135,413,1187,440",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe0b"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01660e3f92ecb918ecfe09"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "833,440,881,466",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe0d"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1081,442,1132,466",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe0e"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01660e3f92ecb918ecfe0c"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "886,420,930,463",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe10"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1036,426,1081,464",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe11"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01660e3f92ecb918ecfe0f"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "932,420,983,461",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe13"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "982,424,1033,464",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01660e3f92ecb918ecfe14"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01660e3f92ecb918ecfe12"
+      }
+    ],
+    "createdAt": "2026-05-11T05:15:58.706Z",
+    "updatedAt": "2026-05-11T11:52:24.355Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a01682b3f92ecb918ed0365",
+    "level": "2",
+    "level1": "2nd",
+    "floorType": "Typical",
+    "floorType1": "Typical Floor",
+    "area": "30,850 sq.ft",
+    "title": "Second",
+    "title1": "2nd Floor",
+    "title2": "Second Typical Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "790,365,790,402,685,404,482,404,378,402,378,363,484,364,683,365",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964010/typical_2_4_t4wgi9.png",
+    "image3D": "/floorPlan/2nd_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "929,613,1033,683",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0367"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01682b3f92ecb918ed0366"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "770,410,824,432",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0369"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1139,412,1204,431",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed036a"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01682b3f92ecb918ed0368"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "768,384,828,412",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed036c"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1139,387,1197,412",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed036d"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01682b3f92ecb918ed036b"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "828,405,881,433",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed036f"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1084,407,1139,433",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0370"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01682b3f92ecb918ed036e"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "881,389,932,435",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0372"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1038,391,1086,435",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0373"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01682b3f92ecb918ed0371"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "934,387,983,433",
+            "title": "Unit 1",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0375"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "3066,1278,3224,1219,3304,1274,3137,1340",
+            "title": "Unit 2",
+            "color": "red",
+            "_id": "6a01682b3f92ecb918ed0376"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01682b3f92ecb918ed0374"
+      }
+    ],
+    "createdAt": "2026-05-11T05:24:59.715Z",
+    "updatedAt": "2026-05-11T11:52:50.313Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a016a593f92ecb918ed0871",
+    "level": "3",
+    "level1": "3rd",
+    "floorType": "",
+    "area": "30,850 sq.ft",
+    "title": "Third",
+    "title1": "3rd Floor",
+    "title2": "Third Typical Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "790,323,790,365,686,365,482,363,377,363,377,323,483,325,685,326",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image3D": "/floorPlan/3rd_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "925,572,1033,650",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0873"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a016a593f92ecb918ed0872"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "761,373,824,396",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0875"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1139,377,1201,400",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0876"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a016a593f92ecb918ed0874"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "763,354,826,373",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0878"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1141,352,1202,379",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0879"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a016a593f92ecb918ed0877"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "828,375,879,400",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed087b"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1086,372,1141,402",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed087c"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a016a593f92ecb918ed087a"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "884,356,927,402",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed087e"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1029,357,1084,402",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed087f"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a016a593f92ecb918ed087d"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "930,356,983,400",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0881"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "982,357,1033,400",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a016a593f92ecb918ed0882"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a016a593f92ecb918ed0880"
+      }
+    ],
+    "createdAt": "2026-05-11T05:34:17.922Z",
+    "updatedAt": "2026-05-11T11:53:00.075Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a01730f2f630be442cee536",
+    "level": "4",
+    "level1": "4th",
+    "floorType": "Typical",
+    "floorType1": "Typical Floor",
+    "area": "30,850 sq.ft",
+    "title": "Forth",
+    "title1": "4th Floor",
+    "title2": "Forth Typical Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "791,285,792,324,684,325,482,325,377,323,378,286,481,287,686,286",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964010/typical_2_4_t4wgi9.png",
+    "image3D": "/floorPlan/4th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "925,539,1033,609",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee538"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01730f2f630be442cee537"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "759,340,824,368",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee53a"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1141,343,1206,368",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee53b"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01730f2f630be442cee539"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "761,318,821,341",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee53d"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1139,319,1202,344",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee53e"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01730f2f630be442cee53c"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "824,342,881,369",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee540"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1084,341,1141,369",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee541"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01730f2f630be442cee53f"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "879,326,927,369",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee543"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1033,325,1086,369",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee544"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01730f2f630be442cee542"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "927,325,980,367",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee546"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "983,325,1033,369",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a01730f2f630be442cee547"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01730f2f630be442cee545"
+      }
+    ],
+    "createdAt": "2026-05-11T06:11:27.663Z",
+    "updatedAt": "2026-05-11T11:53:09.289Z",
+    "__v": 0
+  },
+{
+    "_id": "6a0176672f630be442cef7c6",
+    "level": "5",
+    "level1": "5th",
+    "floorType": "Typical",
+    "floorType1": "Typical Floor",
+    "area": "30,850 sq.ft",
+    "title": "Fifth",
+    "title1": "5th Floor",
+    "title2": "Fifth Typical Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "791,247,791,285,685,286,481,287,378,285,378,247,482,249,687,249",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+     "image3D": "/floorPlan/5th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "925,503,1033,569",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7c8"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0176672f630be442cef7c7"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "757,310,821,334",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7ca"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1142,312,1204,334",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7cb"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0176672f630be442cef7c9"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "761,286,821,313",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7cd"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1141,290,1206,314",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7ce"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0176672f630be442cef7cc"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "824,316,881,336",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7d0"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1084,309,1141,336",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7d1"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0176672f630be442cef7cf"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "881,291,927,336",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7d3"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1033,290,1084,337",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7d4"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0176672f630be442cef7d2"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "929,291,982,334",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7d6"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "980,293,1033,336",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a0176672f630be442cef7d7"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0176672f630be442cef7d5"
+      }
+    ],
+    "createdAt": "2026-05-11T06:25:43.048Z",
+    "updatedAt": "2026-05-11T11:53:21.104Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a0179e72f630be442cefc34",
+    "level": "6",
+    "level1": "6th",
+    "floorType": "Refuge",
+    "floorType1": "Refuge Floor",
+    "area": "27,969 sq.ft",
+    "title": "Sixth",
+    "title1": "6th Floor",
+    "title2": "Sixth Refuge Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "791,209,791,247,685,249,481,249,377,247,376,209,482,213,687,211",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777963987/refuge6_9_cspson.png",
+     "image3D": "/floorPlan/6th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "923,466,1033,530",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc36"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0179e72f630be442cefc35"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "761,278,819,297",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc38"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1142,280,1208,304",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc39"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0179e72f630be442cefc37"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "763,258,823,279",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc3b"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1139,260,1199,283",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc3c"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0179e72f630be442cefc3a"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "824,276,877,298",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc3e"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1088,276,1141,298",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc3f"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0179e72f630be442cefc3d"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "877,261,923,302",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc41"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1035,265,1089,302",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc42"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0179e72f630be442cefc40"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "927,263,982,300",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc44"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "983,263,1035,300",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a0179e72f630be442cefc45"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a0179e72f630be442cefc43"
+      }
+    ],
+    "createdAt": "2026-05-11T06:40:39.557Z",
+    "updatedAt": "2026-05-11T11:54:03.217Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a017ea37b2b498f37a45407",
+    "level": "7",
+    "level1": "7th",
+    "floorType": "Typical",
+    "floorType1": "Typical Floor",
+    "area": "30,850 sq.ft",
+    "title": "Seventh",
+    "title1": "7th Floor",
+    "title2": "Seventh Typical Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "790,166,791,208,685,210,482,212,375,210,375,171,480,174,686,173",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image3D": "/floorPlan/7th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "923,427,1035,495",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a45409"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a017ea37b2b498f37a45408"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "754,242,814,264",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a4540b"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1144,246,1211,267",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a4540c"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a017ea37b2b498f37a4540a"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "757,217,817,242",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a4540e"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1142,221,1210,248",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a4540f"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a017ea37b2b498f37a4540d"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "819,241,877,267",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a45411"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1088,241,1148,265",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a45412"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a017ea37b2b498f37a45410"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "872,228,923,267",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a45414"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1033,228,1086,267",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a017ea37b2b498f37a45415"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a017ea37b2b498f37a45413"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "925,224,980,266",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a017ea47b2b498f37a45417"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "982,224,1035,265",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a017ea47b2b498f37a45418"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a017ea37b2b498f37a45416"
+      }
+    ],
+    "createdAt": "2026-05-11T07:00:52.006Z",
+    "updatedAt": "2026-05-11T11:54:38.075Z",
+    "__v": 0
+  },
+
+
+
+
+ {
+    "_id": "6a01816e7b2b498f37a45b31",
+    "level": "8",
+    "level1": "8th",
+    "floorType": "Biophillic Balcony",
+    "floorType1": "Biophillic Balcony",
+    "area": "29,033 sq.ft",
+    "title": "Eighth",
+    "title1": "8th Floor",
+    "title2": "Eighth Biophillic Bolcony",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78",
+    "polygon": "791,131,791,166,685,171,481,173,375,171,376,131,482,135,686,135",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777963993/biophillic_bolcony_8_k6owxi.png",
+    "image3D": "/floorPlan/8th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "923,387,1036,477",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b33"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01816e7b2b498f37a45b32"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "763,206,812,229",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b35"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1148,207,1204,230",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b36"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01816e7b2b498f37a45b34"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "764,184,819,209",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b38"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1144,184,1201,207",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b39"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01816e7b2b498f37a45b37"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "819,206,874,232",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b3b"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1089,204,1148,232",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b3c"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01816e7b2b498f37a45b3a"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "877,188,923,234",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b3e"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1033,190,1088,232",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b3f"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01816e7b2b498f37a45b3d"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "927,190,982,230",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b41"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "980,191,1035,230",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a01816e7b2b498f37a45b42"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01816e7b2b498f37a45b40"
+      }
+    ],
+    "createdAt": "2026-05-11T07:12:46.116Z",
+    "updatedAt": "2026-05-11T11:55:15.829Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a019e24731f189d65617718",
+    "level": "9",
+    "level1": "9th",
+    "floorType": "Refuge",
+    "floorType1": "Refuge Floor",
+    "area": "27,969 sq.ft",
+    "title": "Ninth",
+    "title1": "9th Floor",
+    "title2": "Ninth Refuge Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "791,95,792,130,685,134,481,134,377,131,378,94,480,100,685,99",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777963987/refuge6_9_cspson.png",
+     "image3D": "/floorPlan/9th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "922,349,1036,409",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a019e24731f189d6561771a"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a019e24731f189d65617719"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "757,170,812,190",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a019e24731f189d6561771c"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1149,172,1211,193",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a019e24731f189d6561771d"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a019e24731f189d6561771b"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "754,146,817,174",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a019e24731f189d6561771f"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1148,151,1210,170",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a019e24731f189d65617720"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a019e24731f189d6561771e"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "814,170,874,193",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a019e24731f189d65617722"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1089,165,1149,195",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a019e24731f189d65617723"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a019e24731f189d65617721"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "877,151,920,195",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a019e24731f189d65617725"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1036,149,1089,191",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a019e24731f189d65617726"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a019e24731f189d65617724"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "925,153,983,195",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a019e24731f189d65617728"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "978,151,1036,195",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a019e24731f189d65617729"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a019e24731f189d65617727"
+      }
+    ],
+    "createdAt": "2026-05-11T09:15:16.999Z",
+    "updatedAt": "2026-05-11T11:55:40.927Z",
+    "__v": 0
+  },
+ {
+    "_id": "6a01a00f731f189d65617d52",
+    "level": "10",
+    "level1": "10th",
+    "floorType": "Typical",
+    "floorType1": "Typical Floor",
+    "area": "30,850 sq.ft",
+    "title": "Typical Floor",
+    "title1": "10th Floor",
+    "title2": "Tenth Typical Floor",
+    "carpet_area": "30,850 sq.ft",
+    "leasable_area": "39,544 sq.ft",
+    "efficiency": "78%",
+    "polygon": "791,51,792,94,685,98,481,99,379,95,379,52,482,56,685,57",
+    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image3D": "/floorPlan/10th_floor.png",
+    "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
+    "sideContent": [
+      {
+        "id": "1",
+        "name": "Lift Lobby",
+        "polygon": [
+          {
+            "poly_Id": "p1",
+            "polygon": "922,306,1035,367",
+            "title": "Lift Lobby",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d54"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01a00f731f189d65617d53"
+      },
+      {
+        "id": "2",
+        "name": "AHU Room",
+        "polygon": [
+          {
+            "poly_Id": "p2",
+            "polygon": "748,131,812,156",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d56"
+          },
+          {
+            "poly_Id": "p2_2",
+            "polygon": "1149,136,1217,156",
+            "title": "AHU Room",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d57"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01a00f731f189d65617d55"
+      },
+      {
+        "id": "3",
+        "name": "ODU Balcony",
+        "polygon": [
+          {
+            "poly_Id": "p3",
+            "polygon": "752,106,817,133",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d59"
+          },
+          {
+            "poly_Id": "p3_2",
+            "polygon": "1148,113,1215,138",
+            "title": "ODU Balcony",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d5a"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01a00f731f189d65617d58"
+      },
+      {
+        "id": "4",
+        "name": "Fire Tower",
+        "polygon": [
+          {
+            "poly_Id": "p4",
+            "polygon": "810,133,867,159",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d5c"
+          },
+          {
+            "poly_Id": "p4_2",
+            "polygon": "1091,129,1151,158",
+            "title": "Fire Tower",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d5d"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01a00f731f189d65617d5b"
+      },
+      {
+        "id": "5",
+        "name": "He Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p5",
+            "polygon": "874,119,922,158",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d5f"
+          },
+          {
+            "poly_Id": "p5_2",
+            "polygon": "1036,112,1093,156",
+            "title": "He Rest Room",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d60"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01a00f731f189d65617d5e"
+      },
+      {
+        "id": "6",
+        "name": "She Rest Room",
+        "polygon": [
+          {
+            "poly_Id": "p6",
+            "polygon": "929,117,983,158",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d62"
+          },
+          {
+            "poly_Id": "p6_2",
+            "polygon": "983,117,1036,156",
+            "title": "She Rest Room",
+            "color": "red",
+            "_id": "6a01a00f731f189d65617d63"
+          }
+        ],
+        "hoveredColor": "red",
+        "_id": "6a01a00f731f189d65617d61"
+      }
+    ],
+    "createdAt": "2026-05-11T09:23:27.972Z",
+    "updatedAt": "2026-05-11T11:56:00.677Z",
+    "__v": 0
+  }
+]

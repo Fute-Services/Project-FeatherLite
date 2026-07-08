@@ -5,7 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/media/gallery" || location.pathname === "/sectionalview" || location.pathname === "/technicalspecifictions" || location.pathname === "/certifictions";
+  const hideNavbar = location.pathname === "/media/gallery" || location.pathname === "/sectionalview" || location.pathname === "/technicalspecifictions" || location.pathname === "/certifictions" || location.pathname.startsWith("/unitplan");
 
   return (
     <ThemeProvider>

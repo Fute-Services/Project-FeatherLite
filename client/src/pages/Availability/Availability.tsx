@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const buildingImg = "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777965947/main_image_l1tzgg.png";
 import GradientImg from "../../assets/AvailabilityPage/Gradient-Background.png";
 import logo from "../../assets/logo.png"
-
+import floorData from '../../data/floorData.json';
 
 const Availability = () => {
   const [showMainContent, setShowMainContent] = useState(false);
@@ -20,38 +20,6 @@ const Availability = () => {
   }, []);
 
   const [hoveredFloor, setHoveredFloor] = useState<string | null>(null);
-
-
-
-  const [floorData, setFloorData] = useState<any[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://api.featherlitesignature.futeservices.in/api/inventory');
-        const data = await response.json();
-        const validData = data.filter((f: any) => Number(f.level) < 100);
-        const mappedData = validData.map((f: any) => {
-          let displayLevel = f.level1;
-          if (f.level === "0") displayLevel = "G";
-
-          let polygon = f.polygon;
-          if (f.level === "3") {
-            polygon = "790,323,790,365,686,365,482,363,377,363,377,323,483,325,685,326";
-          }
-
-          return { ...f, level: displayLevel, polygon, sortOrder: Number(f.level) };
-        });
-
-        mappedData.sort((a: any, b: any) => b.sortOrder - a.sortOrder);
-        setFloorData(mappedData);
-      } catch (error) {
-        console.error("Fetch failed", error);
-      }
-    };
-    fetchData();
-  }, []);
-
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-gray-900 font-sans">

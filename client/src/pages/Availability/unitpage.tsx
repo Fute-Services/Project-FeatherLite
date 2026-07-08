@@ -1,4 +1,4 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 import backBtnImg from '../../assets/unit/back.png';
@@ -14,6 +14,7 @@ import bottomFloorNameImg from '../../assets/unit/Bottom_floor_name.png';
 import logo from '../../assets/logo.png';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import floorData from '../../data/floorData.json';
 
 // Using solid background color instead of image to match Media page
 
@@ -32,50 +33,11 @@ const zoomCoordinates: Record<string, { scale: number, x: number, y: number }> =
 export default function UnitPlanPage() {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const location = useLocation();
 
     // Decode ID (e.g. "9%20Refuge" -> "9 Refuge")
     const floorId = id ? decodeURIComponent(id) : '';
 
-    const [floorData, setFloors] = useState<any[]>(location.state?.allFloors || []);
-    const [isLoading, setIsLoading] = useState(floorData.length === 0);
-
-    useEffect(() => {
-        if (floorData.length > 0) {
-            setIsLoading(false);
-            return;
-        }
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch('https://api.featherlitesignature.futeservices.in/api/inventory');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-                const data = await response.json();
-                const mappedData = data.map((f: any) => {
-                    let displayLevel = f.level1;
-                    if (f.level === "0") displayLevel = "0";
-                    else if (f.floorType === "Refuge") displayLevel = `${f.level1} Refuge`;
-
-                    let polygon = f.polygon;
-                    if (f.level === "3") {
-                        polygon = "790,323,790,365,686,365,482,363,377,363,377,323,483,325,685,326";
-                    }
-
-                    return { ...f, level: displayLevel, polygon, sortOrder: Number(f.level) };
-                });
-
-                mappedData.sort((a: any, b: any) => b.sortOrder - a.sortOrder);
-                setFloors(mappedData);
-            } catch (error) {
-                console.error("Fetch failed", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchData();
-    }, [floorId, floorData.length]);
+    const isLoading = floorData.length === 0;
 
     const currentUnit = useMemo(() => {
         if (!floorData.length) return null;
@@ -90,7 +52,7 @@ export default function UnitPlanPage() {
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
-    const [imgSize3D, _setImgSize3D] = useState({ w: 4725, h: 2658 });
+    const [imgSize3D, _setImgSize3D] = useState({ w: 2000, h: 1125 });
     const [hoveredRoom, setHoveredRoom] = useState<string | null>(null);
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -425,18 +387,22 @@ export default function UnitPlanPage() {
                                 }}
                             /> */}
 
-                            {/* 3. The SVG Layer (Unchanged) */}
+                            {/* 3. The SVG Layer (interactive room hotspots) */}
                             <svg
                                 viewBox={`0 0 ${imgSize3D.w} ${imgSize3D.h}`}
                                 className="absolute inset-0 w-full h-full pointer-events-none rounded-[20px]"
                                 preserveAspectRatio="xMidYMid meet"
                             >
                                 {currentUnit.sideContent?.map((roomObj: any) => {
-                                    if (!roomObj.polygon) return null;
+                                    // Support both 'rectangles' and legacy 'polygon' data shapes
+                                    if (!roomObj.polygon && !roomObj.rectangles) return null;
+
                                     const isHovered = hoveredRoom === roomObj.name;
                                     const isActive = activeRoom === roomObj.name;
 
-                                    return roomObj.polygon.map((poly: any) => {
+                                    const rectItems = roomObj.rectangles || roomObj.polygon || [];
+
+                                    return rectItems.map((item: any) => {
                                         let fillColor = 'transparent';
                                         let strokeColor = 'transparent';
                                         if (isHovered) {
@@ -447,20 +413,68 @@ export default function UnitPlanPage() {
                                             strokeColor = 'rgba(197, 168, 128, 0.8)';
                                         }
 
-                                        return (
-                                            <polygon
-                                                key={poly._id || poly.poly_Id}
-                                                points={poly.polygon}
-                                                className="transition-all duration-300"
-                                                style={{
-                                                    fill: fillColor,
-                                                    stroke: strokeColor,
-                                                    strokeWidth: 2,
-                                                    cursor: 'default',
-                                                    pointerEvents: 'none'
-                                                }}
-                                            />
-                                        );
+                                        const interactiveProps = {
+                                            className: "transition-all duration-300",
+                                            style: {
+                                                fill: fillColor,
+                                                stroke: strokeColor,
+                                                strokeWidth: 2,
+                                                cursor: 'pointer',
+                                                pointerEvents: 'auto' as const
+                                            },
+                                            onMouseEnter: () => setHoveredRoom(roomObj.name),
+                                            onMouseLeave: () => setHoveredRoom(null),
+                                            onClick: (e: React.MouseEvent) => {
+                                                e.stopPropagation();
+                                                setActiveRoom(roomObj.name);
+                                            }
+                                        };
+
+                                        // If we have polygon coordinates
+                                        if (item.polygon) {
+                                            const coords = item.polygon.split(',').map(Number);
+                                            // If it's a 2-point bounding box (x1, y1, x2, y2), draw as rect
+                                            if (coords.length === 4) {
+                                                const x = Math.min(coords[0], coords[2]);
+                                                const y = Math.min(coords[1], coords[3]);
+                                                const width = Math.abs(coords[2] - coords[0]);
+                                                const height = Math.abs(coords[3] - coords[1]);
+                                                return (
+                                                    <rect
+                                                        key={item._id || item.rect_Id || item.poly_Id}
+                                                        x={x}
+                                                        y={y}
+                                                        width={width}
+                                                        height={height}
+                                                        {...interactiveProps}
+                                                    />
+                                                );
+                                            }
+                                            // Otherwise, render as polygon
+                                            return (
+                                                <polygon
+                                                    key={item._id || item.poly_Id}
+                                                    points={item.polygon}
+                                                    {...interactiveProps}
+                                                />
+                                            );
+                                        }
+
+                                        // If we have direct rect coordinates
+                                        if (item.x !== undefined && item.y !== undefined) {
+                                            return (
+                                                <rect
+                                                    key={item._id || item.rect_Id || item.poly_Id}
+                                                    x={item.x}
+                                                    y={item.y}
+                                                    width={item.width}
+                                                    height={item.height}
+                                                    {...interactiveProps}
+                                                />
+                                            );
+                                        }
+
+                                        return null;
                                     });
                                 })}
                             </svg>
