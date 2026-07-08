@@ -89,7 +89,32 @@ function Navbar() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-4">
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-start gap-3">
+      {isHomePage && (
+        <div className="flex items-center gap-2 p-1 rounded-full backdrop-blur-[6px] bg-[rgba(99,26,21,0.02)] border border-white/10 shadow-2xl">
+          <button
+            onClick={() => setTheme("day")}
+            className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${theme === "day"
+              ? "bg-[#BE0100] border-transparent shadow-[0_0_10px_rgba(190,1,0,0.5)]"
+              : "bg-[#BE0100]/20  hover:bg-[#BE0100]/35"
+              }`}
+            aria-label="Day Mode"
+          >
+            <img src={dayIcon} alt="Day" className="w-5 h-5 object-contain" />
+          </button>
+          <button
+            onClick={() => setTheme("night")}
+            className={`flex items-center justify-center w-10 h-10 rounded-full  transition-all duration-300 ${theme === "night"
+              ? "bg-[#BE0100] border-transparent shadow-[0_0_10px_rgba(190,1,0,0.5)]"
+              : "bg-[#BE0100]/20 border-[#BE0100] hover:bg-[#BE0100]/35"
+              }`}
+            aria-label="Night Mode"
+          >
+            <img src={nightIcon} alt="Night" className="w-5 h-5 object-contain" />
+          </button>
+        </div>
+      )}
+
       <nav className="flex items-center gap-6 p-1 rounded-full backdrop-blur-[6px] bg-[rgba(99,26,21,0.02)] border border-white/10 shadow-2xl">
 
         {navItems.map((item) => {
@@ -123,31 +148,6 @@ function Navbar() {
           );
         })}
       </nav>
-
-      {isHomePage && (
-        <div className="flex items-center gap-2 p-1 rounded-full backdrop-blur-[6px] bg-[rgba(99,26,21,0.02)] border border-white/10 shadow-2xl">
-          <button
-            onClick={() => setTheme("day")}
-            className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${theme === "day"
-              ? "bg-[#BE0100] border-transparent shadow-[0_0_10px_rgba(190,1,0,0.5)]"
-              : "bg-[#BE0100]/20  hover:bg-[#BE0100]/35"
-              }`}
-            aria-label="Day Mode"
-          >
-            <img src={dayIcon} alt="Day" className="w-5 h-5 object-contain" />
-          </button>
-          <button
-            onClick={() => setTheme("night")}
-            className={`flex items-center justify-center w-10 h-10 rounded-full  transition-all duration-300 ${theme === "night"
-              ? "bg-[#BE0100] border-transparent shadow-[0_0_10px_rgba(190,1,0,0.5)]"
-              : "bg-[#BE0100]/20 border-[#BE0100] hover:bg-[#BE0100]/35"
-              }`}
-            aria-label="Night Mode"
-          >
-            <img src={nightIcon} alt="Night" className="w-5 h-5 object-contain" />
-          </button>
-        </div>
-      )}
     </div>
   );
 }
