@@ -80,8 +80,6 @@ export default function UnitPlanPage() {
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
     const [, setShowOverlay] = useState(true);
 
-    const [sliderValue, setSliderValue] = useState(50);
-
     const [imgSize3D, _setImgSize3D] = useState({ w: 4725, h: 2658 });
     const [hoveredRoom, setHoveredRoom] = useState<string | null>(null);
 
