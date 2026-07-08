@@ -1,18 +1,20 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home/HomePage";
-import Location from "../pages/Location/Location";
-import Amenities from "../pages/Amenities/Amenities";
-import Availability from "../pages/Availability/Availability";
-import Media from "../pages/Media/Media";
-import GalleryPage from "../pages/Media/GalleryPage";
-import SectionalView from "../components/Amenities/SectionalView";
-import UnitPlanPage from "../pages/Availability/unitpage";
-import PanoramaViewer from "../components/Amenities/PanaromaViewer";
-import Vr from "../pages/Amenities/virtulatour";
-import CertificationsCard from "../pages/Media/Certification";
-import TechnicalSpecificationsCard from "../pages/Media/Technicalspecification";
-import Circulation from "../pages/Amenities/Circulation";
+
+const Location = lazy(() => import("../pages/Location/Location"));
+const Amenities = lazy(() => import("../pages/Amenities/Amenities"));
+const Availability = lazy(() => import("../pages/Availability/Availability"));
+const Media = lazy(() => import("../pages/Media/Media"));
+const GalleryPage = lazy(() => import("../pages/Media/GalleryPage"));
+const SectionalView = lazy(() => import("../components/Amenities/SectionalView"));
+const UnitPlanPage = lazy(() => import("../pages/Availability/unitpage"));
+const PanoramaViewer = lazy(() => import("../components/Amenities/PanaromaViewer"));
+const Vr = lazy(() => import("../pages/Amenities/virtulatour"));
+const CertificationsCard = lazy(() => import("../pages/Media/Certification"));
+const TechnicalSpecificationsCard = lazy(() => import("../pages/Media/Technicalspecification"));
+const Circulation = lazy(() => import("../pages/Amenities/Circulation"));
 
 export const router = createBrowserRouter([
   {

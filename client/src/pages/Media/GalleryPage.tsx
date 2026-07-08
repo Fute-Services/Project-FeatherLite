@@ -109,6 +109,7 @@ export default function GalleryPage() {
                 <img
                   src={img.url || img.image}
                   alt={img.title}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />

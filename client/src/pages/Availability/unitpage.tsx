@@ -17,6 +17,17 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 
 // Using solid background color instead of image to match Media page
 
+// Specific zoom area mappings for each floor
+const zoomCoordinates: Record<string, { scale: number, x: number, y: number }> = {
+    "11th": { scale: 2, x: -65, y: 279 },
+    "10th": { scale: 2, x: -65, y: 279 },
+    "9th refuge": { scale: 1.50, x: -44, y: 172 },
+    "8th": { scale: 1.50, x: -44, y: 172 },
+    "7th": { scale: 1.50, x: -36, y: 127 },
+    "6th refuge": { scale: 1.50, x: -65, y: 85 },
+    "5th": { scale: 1.50, x: -43, y: 50 },
+    "default": { scale: 1.5, x: 0, y: 0 } // Fallback
+};
 
 export default function UnitPlanPage() {
     const { id } = useParams<{ id: string }>();
@@ -78,7 +89,6 @@ export default function UnitPlanPage() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-    const [, setShowOverlay] = useState(true);
 
     const [imgSize3D, _setImgSize3D] = useState({ w: 4725, h: 2658 });
     const [hoveredRoom, setHoveredRoom] = useState<string | null>(null);
@@ -115,26 +125,6 @@ export default function UnitPlanPage() {
         else setIsPanelOpen(true);
     }, [zoom]);
 
-    useEffect(() => {
-        if (zoom > 1) setShowOverlay(false);
-        else setShowOverlay(true);
-    }, [zoom]);
-
-    // Specific zoom area mappings for each floor
-    const zoomCoordinates: Record<string, { scale: number, x: number, y: number }> = {
-        "11th": { scale: 2, x: -65, y: 279 },
-        "10th": { scale: 2, x: -65, y: 279 },
-        "9th refuge": { scale: 1.50, x: -44, y: 172 },
-        "8th": { scale: 1.50, x: -44, y: 172 },
-        "7th": { scale: 1.50, x: -36, y: 127 },
-        "6th refuge": { scale: 1.50, x: -65, y: 85 },
-        "5th": { scale: 1.50, x: -43, y: 50 },
-
-
-
-        "default": { scale: 1.5, x: 0, y: 0 } // Fallback
-    };
-
     const handleZoomIn = () => {
         const coords = zoomCoordinates[floorId.toLowerCase()] || zoomCoordinates["default"];
         if (zoom === 1) {
@@ -156,22 +146,36 @@ export default function UnitPlanPage() {
             // 2nd click out: Reset to normal view
             setZoom(1);
             setPosition({ x: 0, y: 0 });
-            setShowOverlay(true);
         }
     };
 
 
     useEffect(() => {
+        let rafId: number | null = null;
+        let pendingPosition: { x: number; y: number } | null = null;
+
+        const flush = () => {
+            rafId = null;
+            if (pendingPosition) {
+                setPosition(pendingPosition);
+                pendingPosition = null;
+            }
+        };
+        const schedule = (pos: { x: number; y: number }) => {
+            pendingPosition = pos;
+            if (rafId === null) rafId = requestAnimationFrame(flush);
+        };
+
         const onMouseMove = (e: MouseEvent) => {
             if (isDragging && zoom > 1) {
-                setPosition({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+                schedule({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
             }
         };
         const onTouchMove = (e: TouchEvent) => {
             if (isDragging && zoom > 1) {
                 if (e.cancelable) e.preventDefault();
                 const t = e.touches[0];
-                setPosition({ x: t.clientX - dragStart.x, y: t.clientY - dragStart.y });
+                schedule({ x: t.clientX - dragStart.x, y: t.clientY - dragStart.y });
             }
         };
         const onEnd = () => setIsDragging(false);
@@ -186,6 +190,7 @@ export default function UnitPlanPage() {
             window.removeEventListener('touchmove', onTouchMove);
             window.removeEventListener('mouseup', onEnd);
             window.removeEventListener('touchend', onEnd);
+            if (rafId !== null) cancelAnimationFrame(rafId);
         };
     }, [isDragging, zoom, dragStart]);
 

@@ -3,12 +3,7 @@ import dayIcon from "../../assets/Home Page/day.png";
 import nightIcon from "../../assets/Home Page/night.png";
 import { useTheme } from "../../context/ThemeContext";
 
-function Navbar() {
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
-  const { theme, setTheme } = useTheme();
-
-  const navItems = [
+const navItems = [
     {
       name: "Home",
       path: "/",
@@ -87,6 +82,11 @@ function Navbar() {
       )
     },
   ];
+
+function Navbar() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-4">

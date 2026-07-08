@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -9,7 +10,9 @@ function App() {
   return (
     <ThemeProvider>
       <div className="w-full min-h-screen">
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
         {!hideNavbar && <Navbar />}
       </div>
     </ThemeProvider>
