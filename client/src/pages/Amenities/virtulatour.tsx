@@ -363,27 +363,39 @@ export default function Vr() {
 
 
   useEffect(() => {
-    let timer: any;
-    if (window.pannellum && !viewerRef.current) {
-      timer = setTimeout(() => {
-        try {
-          viewerRef.current = window.pannellum.viewer("pan-container", {
-            ...tourConfig,
-            showControls: false,
-            mouseZoom: true,
-          });
+    let pollTimer: any;
+    let cancelled = false;
 
-          viewerRef.current.on("load", () => {
-            setCurrentScene(viewerRef.current.getScene());
-          });
-        } catch (err) {
-          console.error("Error initializing Pannellum:", err);
-        }
-      }, 50);
-    }
+    const initViewer = () => {
+      if (cancelled || viewerRef.current) return;
+      try {
+        viewerRef.current = window.pannellum.viewer("pan-container", {
+          ...tourConfig,
+          showControls: false,
+          mouseZoom: true,
+        });
+
+        viewerRef.current.on("load", () => {
+          setCurrentScene(viewerRef.current.getScene());
+        });
+      } catch (err) {
+        console.error("Error initializing Pannellum:", err);
+      }
+    };
+
+    const waitForPannellum = () => {
+      if (window.pannellum) {
+        initViewer();
+      } else {
+        pollTimer = setTimeout(waitForPannellum, 100);
+      }
+    };
+
+    waitForPannellum();
 
     return () => {
-      if (timer) clearTimeout(timer);
+      cancelled = true;
+      if (pollTimer) clearTimeout(pollTimer);
       if (viewerRef.current) {
         viewerRef.current.destroy();
         viewerRef.current = null;
