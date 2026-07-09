@@ -138,14 +138,17 @@ export default function UnitPlanPage() {
     const floorId = id ? decodeURIComponent(id) : '';
     // The topmost level is the Terrace: it has no rooms / side panel / 2D plan,
     // so hide those UI pieces and label it "Terrace" instead of "11".
-    const isTerrace = String(floorId).toLowerCase() === "11" || String(floorId).toLowerCase() === "11th";
+    const isTerrace = String(floorId).toLowerCase() === "11" || String(floorId).toLowerCase() === "11th" || String(floorId).toLowerCase() === "terrace";
     const displayFloorName = isTerrace ? "Terrace" : floorId;
 
     const isLoading = floorData.length === 0;
 
     const currentUnit = useMemo(() => {
         if (!floorData.length) return null;
-        return floorData.find((f) => String(f.level).toLowerCase() === String(floorId).toLowerCase());
+        return floorData.find((f) =>
+            String(f.level).toLowerCase() === String(floorId).toLowerCase() ||
+            (f.level === "" && String(f.level1).toLowerCase() === String(floorId).toLowerCase())
+        );
     }, [floorData, floorId]);
 
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);

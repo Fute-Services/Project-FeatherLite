@@ -114,7 +114,7 @@ const Availability = () => {
                   }`}
                 onMouseEnter={() => setHoveredFloor(floor.level)}
                 onMouseLeave={() => setHoveredFloor(null)}
-                onClick={() => navigate(`/unitplan/${encodeURIComponent(floor.level)}`, { state: { allFloors: floorData } })}
+                onClick={() => navigate(`/unitplan/${encodeURIComponent(floor.level || floor.level1)}`, { state: { allFloors: floorData } })}
               />
             ))}
           </svg>
@@ -235,7 +235,7 @@ const Availability = () => {
                   className="flex items-center gap-1 lg:gap-[6px] cursor-pointer"
                   onMouseEnter={() => setHoveredFloor(floor.level)}
                   onMouseLeave={() => setHoveredFloor(null)}
-                  onClick={() => navigate(`/unitplan/${encodeURIComponent(floor.level)}`, { state: { allFloors: floorData } })}
+                  onClick={() => navigate(`/unitplan/${encodeURIComponent(floor.level || floor.level1)}`, { state: { allFloors: floorData } })}
                 >
                   {/* Floor Number Pill */}
                   <div
