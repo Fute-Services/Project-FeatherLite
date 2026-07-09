@@ -32,6 +32,11 @@ function Media() {
 
   // State for tracking PDF pages
   const [numPages, setNumPages] = useState<number | null>(null);
+  // Only the pages near the one currently shown are rasterized — with 57
+  // pages in the brochure, rendering all of them at once on open is what
+  // made it feel slow. The rest stay as blank placeholders (same as before
+  // any page has loaded) and render in as the user flips close to them.
+  const [currentPage, setCurrentPage] = useState(0);
   const FlipBook = HTMLFlipBook as any;
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
@@ -136,21 +141,27 @@ function Media() {
                   maxHeight={1533}
                   showCover={true}
                   className="shadow-2xl"
+                  onFlip={(e: any) => setCurrentPage(e.data)}
                 >
-                  {/* Dynamically render all PDF pages into the flipbook */}
+                  {/* Dynamically render all PDF pages into the flipbook.
+                      Only pages near the current one are actually rasterized;
+                      the rest render as blank placeholders until the user
+                      flips close enough to need them. */}
                   {Array.from(new Array(numPages), (_, index) => (
                     <div
                       key={`page_${index + 1}`}
                       className="bg-white w-full h-full flex justify-center items-center overflow-hidden"
                     >
-                      <Page
-                        pageNumber={index + 1}
-                        width={684}
-                        scale={0.75}
-                        renderAnnotationLayer={false}
-                        renderTextLayer={false}
-                        className="flex justify-center items-center"
-                      />
+                      {Math.abs(index - currentPage) <= 3 && (
+                        <Page
+                          pageNumber={index + 1}
+                          width={684}
+                          scale={0.75}
+                          renderAnnotationLayer={false}
+                          renderTextLayer={false}
+                          className="flex justify-center items-center"
+                        />
+                      )}
                     </div>
                   ))}
                 </FlipBook>
