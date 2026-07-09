@@ -11,6 +11,7 @@ import upIcon from '../../assets/unit/up_icon.png';
 import downIcon from '../../assets/unit/down_icon.png';
 import bottomFloorNameImg from '../../assets/unit/Bottom_floor_name.png';
 import logo from '../../assets/logo.png';
+import pageBg from '../../assets/Media/page-bg.png';
 
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 import floorData from '../../data/floorData.json';
@@ -307,6 +308,11 @@ export default function UnitPlanPage() {
             className="h-screen w-full bg-[#072847] relative overflow-hidden flex font-sans"
         >
 
+            {/* Background image */}
+            <div
+                className="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat z-0"
+                style={{ backgroundImage: `url(${pageBg})` }}
+            />
 
             {/* Background Glows using radial-gradients for reliable rendering */}
             <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none z-0"
