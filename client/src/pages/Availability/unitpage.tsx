@@ -334,9 +334,9 @@ export default function UnitPlanPage() {
                     <div>Floor ID: {floorId.toLowerCase()}</div>
                 </div> */}
 
-            {/* Top Center Floor Title */}
+            {/* Top Center Floor Title (left-aligned for the Terrace) */}
             <div
-                className="absolute top-10 sm:top-14 w-full flex justify-center pointer-events-none z-10"
+                className={`absolute top-10 sm:top-14 w-full flex ${isTerrace ? 'justify-start pl-8 sm:pl-16 lg:pl-24' : 'justify-center'} pointer-events-none z-10`}
                 style={{
                     opacity: is2dActive ? 0 : 1,
                     transition: `opacity ${DUR} ${EASE}`,
