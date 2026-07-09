@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // @ts-ignore
 import backImg from "../../assets/unit/back.png";
+import pageBg from "../../assets/Media/page-bg.png";
 // @ts-ignore
 import pointSvg from "../../assets/Media/point.svg";
 
@@ -128,12 +129,11 @@ const specificationsData = [
 const TechnicalSpecificationsPage = () => {
   return (
     <div className="w-full h-screen overflow-y-auto lg:overflow-hidden scrollbar-hide bg-[#0a2440] relative">
-      {/* Diagonal line pattern background */}
+      {/* Background image */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="fixed inset-0 pointer-events-none bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "repeating-linear-gradient(65deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 34px)",
+          backgroundImage: `url(${pageBg})`,
         }}
       />
 
