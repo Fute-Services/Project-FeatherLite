@@ -349,9 +349,9 @@ export default function UnitPlanPage() {
                     backgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                 }}>
-                    <span className="capitalize text-[60px] sm:text-[75px] font-medium leading-none">{displayFloorName}</span>
+                    <span className={`capitalize font-medium leading-none ${isTerrace ? 'text-[40px] sm:text-[52px]' : 'text-[60px] sm:text-[75px]'}`}>{displayFloorName}</span>
                     {/* <span className="text-[20px] sm:text-[28px] mr-2 leading-none relative -top-6">th</span> */}
-                    <span className="text-[50px] sm:text-[50px] font-light leading-none ml-3">Floor</span>
+                    <span className={`font-light leading-none ml-3 ${isTerrace ? 'text-[32px] sm:text-[38px]' : 'text-[50px] sm:text-[50px]'}`}>Floor</span>
                 </h1>
             </div>
 

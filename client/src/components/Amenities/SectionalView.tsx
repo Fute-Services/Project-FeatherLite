@@ -592,6 +592,8 @@ import rooftopLunchImg from "../../assets/amenities/popup/Rooftop Lunch cafe.jpe
 import servingKioskImg from "../../assets/amenities/popup/Serving Kiosk.jpg";
 // @ts-ignore
 import tableTennisImg from "../../assets/amenities/popup/Table Tennis.jpeg";
+// @ts-ignore
+import securityAreaImg from "../../assets/amenities/popup/Security Area.jpeg";
 import ledScreenVideo from "../../assets/LED Screeng.mp4";
 
 const popupImageMap: Record<string, string> = {
@@ -605,6 +607,7 @@ const popupImageMap: Record<string, string> = {
   "double-height-lobbies": receptionImg,
   "cafe": cafeteriaImg,
   "outdoor-seating": outdoorSeatingImg,
+  "parking": securityAreaImg,
 };
 
 const popupVideoMap: Record<string, string> = {
@@ -759,7 +762,7 @@ const amenities: Amenity[] = [
   },
   {
     id: "parking",
-    label: ["Vistors Car Parking", "With EV charging"],
+    label: ["Vistors Car Parking"],
     cx: 692,
     cy: 1035,
     thumbnailPos: "right",
@@ -768,7 +771,7 @@ const amenities: Amenity[] = [
     labelPos: "left",
     customIcon: parkingIconImg,
     delay: 0.5,
-    image: exploreImg,
+    image: securityAreaImg,
   },
   {
     id: "double-height-lobbies",
