@@ -13,7 +13,7 @@
     "leasable_area": "39,544 sq.ft",
     "efficiency": "78%",
     "polygon": "791,442,791,474,634,475,495,473,377,474,378,440,496,443,634,443",
-    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777980745/ground_b6laev.png",
+    "image2D": "/floorPlan/2d/ground floor (2).png",
     "image3D": "/floorPlan/ground_floor.png",
     "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
     "sideContent": [
@@ -442,7 +442,7 @@
     "leasable_area": "39,544 sq.ft",
     "efficiency": "78%",
     "polygon": "790,323,790,365,686,365,482,363,377,363,377,323,483,325,685,326",
-    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image2D": "/floorPlan/2d/3rd, 5th 7th 10th.png",
     "image3D": "/floorPlan/3rd_floor.png",
     "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
     "sideContent": [
@@ -738,7 +738,7 @@
     "leasable_area": "39,544 sq.ft",
     "efficiency": "78%",
     "polygon": "791,247,791,285,685,286,481,287,378,285,378,247,482,249,687,249",
-    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image2D": "/floorPlan/2d/3rd, 5th 7th 10th.png",
     "image3D": "/floorPlan/5th_floor.png",
     "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
     "sideContent": [
@@ -1034,7 +1034,7 @@
     "leasable_area": "39,544 sq.ft",
     "efficiency": "78%",
     "polygon": "790,166,791,208,685,210,482,212,375,210,375,171,480,174,686,173",
-    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image2D": "/floorPlan/2d/3rd, 5th 7th 10th.png",
     "image3D": "/floorPlan/7th_floor.png",
     "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
     "sideContent": [
@@ -1478,7 +1478,7 @@
     "leasable_area": "39,544 sq.ft",
     "efficiency": "78%",
     "polygon": "791,51,792,94,685,98,481,99,379,95,379,52,482,56,685,57",
-    "image2D": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777964001/typical_3_5_7_10_qahm2x.png",
+    "image2D": "/floorPlan/2d/3rd, 5th 7th 10th.png",
     "image3D": "/floorPlan/10th_floor.png",
     "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777888846/Group_193_o5vna0.png",
     "sideContent": [
@@ -1626,7 +1626,7 @@
     "efficiency": "78%",
     "polygon": "791,35,792,51,685,56,482,56,378,51,378,36,482,41,684,41",
     "image2D": "",
-    "image3D": "/floorPlan/Terrace floor.. 1.png",
+    "image3D": "/floorPlan/2d/Terrace floor.. 1 (1).png",
     "sideImage": "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777891474/Terrace_Floor_2_chlppb.png",
     "sideContent": [
       {
