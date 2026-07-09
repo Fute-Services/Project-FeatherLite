@@ -1,3 +1,0 @@
-client/public/virtual[[:space:]]tour/*.png filter=lfs diff=lfs merge=lfs -text
-client/public/virtual[[:space:]]tour/*.jpg filter=lfs diff=lfs merge=lfs -text
-client/public/virtual[[:space:]]tour/*.jpeg filter=lfs diff=lfs merge=lfs -text
