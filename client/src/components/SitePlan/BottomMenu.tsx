@@ -29,14 +29,14 @@ const BottomMenu: React.FC<BottomMenuProps> = ({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="absolute bottom-24 left-[20%] -translate-x-1/2 z-30 flex flex-col items-center gap-4 pointer-events-none w-full max-w-4xl"
+        className="absolute bottom-24 left-1/2 xl:left-[20%] -translate-x-1/2 z-30 flex flex-col items-center gap-4 pointer-events-none w-full max-w-[96vw] lg:max-w-4xl"
       >
         {/* Top Row: Sub-nav */}
-        <div className="flex items-center justify-center gap-4 pointer-events-auto">
+        <div className="flex flex-wrap items-center justify-center gap-2 lg:gap-4 pointer-events-auto w-full">
           {/* View/Hide Button */}
           <button
             onClick={onToggleView}
-            className="flex items-center gap-3 px-8 py-2 bg-[#FF0000] hover:bg-red-700 text-white rounded-full font-medium transition-colors shadow-lg active:scale-95"
+            className="flex items-center gap-2 lg:gap-3 px-4 lg:px-8 py-2 text-sm lg:text-base bg-[#FF0000] hover:bg-red-700 text-white rounded-full font-medium transition-colors shadow-lg active:scale-95"
           >
             <span>{isViewActive ? 'Hide' : 'View'}</span>
             <div className="border border-white/40 rounded-full p-1 flex items-center justify-center">
@@ -52,7 +52,7 @@ const BottomMenu: React.FC<BottomMenuProps> = ({
           <div className="relative">
             <button
               onClick={() => toggleSubMenu('levels')}
-              className="flex items-center gap-3 px-8 py-2 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-colors shadow-lg"
+              className="flex items-center gap-2 lg:gap-3 px-4 lg:px-8 py-2 text-sm lg:text-base bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-colors shadow-lg"
             >
               <span>Levels</span>
               <div className="bg-[#FF0000] rounded-full p-1 flex items-center justify-center">
@@ -99,14 +99,14 @@ const BottomMenu: React.FC<BottomMenuProps> = ({
 
           <button
             onClick={() => navigate('/virtualtour')}
-            className="px-8 py-2 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-all duration-300 shadow-lg"
+            className="px-4 lg:px-8 py-2 text-sm lg:text-base bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-all duration-300 shadow-lg whitespace-nowrap"
           >
             Virtual Tour
           </button>
 
           <button
             onClick={() => navigate('/circulation')}
-            className="px-8 py-2 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-all duration-300 shadow-lg"
+            className="px-4 lg:px-8 py-2 text-sm lg:text-base bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-all duration-300 shadow-lg whitespace-nowrap"
           >
             Circulation
           </button>

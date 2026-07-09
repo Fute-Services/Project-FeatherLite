@@ -59,11 +59,11 @@ export default function GalleryPage() {
       </div>
 
       {/* LOGO */}
-      <div className="absolute top-6 right-10 z-20 pointer-events-none">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-10 z-20 pointer-events-none">
         <img
           src={logo}
           alt="Logo"
-          className="relative h-20 md:h-24 w-auto object-contain drop-shadow-2xl"
+          className="relative h-14 sm:h-20 md:h-24 w-auto object-contain drop-shadow-2xl"
         />
       </div>
 
@@ -150,7 +150,7 @@ export default function GalleryPage() {
               setViewMode("interior");
               setActiveIndex(0);
             }}
-            className={`px-6 md:px-10 py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-[0.15em] transition-all duration-500 uppercase active:scale-95`}
+            className={`px-4 sm:px-6 md:px-10 py-2 sm:py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-[0.15em] transition-all duration-500 uppercase active:scale-95 whitespace-nowrap`}
             style={{
               background:
                 viewMode === "interior"
@@ -172,7 +172,7 @@ export default function GalleryPage() {
               setViewMode("exterior");
               setActiveIndex(0);
             }}
-            className={`px-6 md:px-10 py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-[0.15em] transition-all duration-500 uppercase active:scale-95`}
+            className={`px-4 sm:px-6 md:px-10 py-2 sm:py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-[0.15em] transition-all duration-500 uppercase active:scale-95 whitespace-nowrap`}
             style={{
               background:
                 viewMode === "exterior"

@@ -38,14 +38,14 @@ export default function Circulation() {
       <button
         onClick={() => navigate(-1)}
         aria-label="Go Back"
-        className="absolute bottom-8 left-8 sm:left-16 z-50 group cursor-pointer"
+        className="absolute bottom-4 left-4 sm:bottom-8 sm:left-16 z-50 group cursor-pointer"
       >
         <svg
           width="50"
           height="50"
           viewBox="0 0 70 70"
           xmlns="http://www.w3.org/2000/svg"
-          className="transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
+          className="w-[42px] h-[42px] sm:w-[50px] sm:h-[50px] transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
         >
           <circle cx="35" cy="35" r="32" fill="rgba(255,206,117,1)" />
           <g transform="translate(25,23)">

@@ -169,6 +169,17 @@ const Amenities = () => {
   const [sitePlanApiData, setSitePlanApiData] = useState<MasterPlanResponse | null>(null);
   const [terracePlanApiData, setTerracePlanApiData] = useState<MasterPlanResponse | null>(null);
 
+  // On phone/tablet the plan should show the SAME full framing as desktop
+  // (fit the whole image), not a cropped/zoomed-in "cover" fill. Both the
+  // background image and the SVG overlay switch together so hotspots stay
+  // aligned with the image at every size.
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+  useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   useEffect(() => {
     const fetchPlans = async () => {
       try {
@@ -212,7 +223,7 @@ const Amenities = () => {
       className="w-full h-screen overflow-hidden bg-neutral-900 relative"
       style={{
         backgroundImage: `url(${activeBg})`,
-        backgroundSize: "cover",
+        backgroundSize: isDesktop ? "cover" : "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         transition: "background-image 0.5s ease-in-out",
@@ -222,7 +233,7 @@ const Amenities = () => {
         <svg
           className="absolute inset-0 w-full h-full z-10 pointer-events-none"
           viewBox={currentLevel === "ground" ? "0 0 5121 2382" : "0 0 5325 2638"}
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio={isDesktop ? "xMidYMid slice" : "xMidYMid meet"}
         >
           <defs>
             <radialGradient
@@ -313,7 +324,7 @@ const Amenities = () => {
         <img
           src={logo}
           alt="Logo"
-          className="relative h-20 w-auto object-contain drop-shadow-2xl"
+          className="relative h-12 sm:h-16 lg:h-20 w-auto object-contain drop-shadow-2xl"
         />
       </div>
 

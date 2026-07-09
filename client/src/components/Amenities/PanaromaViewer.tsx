@@ -142,14 +142,14 @@ const PanoramaViewer = () => {
       <button
         onClick={() => navigate(-1)}
         aria-label="Go back"
-        className="absolute bottom-8 left-16 z-50 group"
+        className="absolute bottom-4 left-4 sm:bottom-8 sm:left-16 z-50 group"
       >
         <svg
           width="70"
           height="70"
           viewBox="0 0 70 70"
           xmlns="http://www.w3.org/2000/svg"
-          className="transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
+          className="w-[48px] h-[48px] sm:w-[70px] sm:h-[70px] transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
         >
           <circle cx="35" cy="35" r="32" fill='#CDAE7F' />
           <g transform="translate(25,23)">

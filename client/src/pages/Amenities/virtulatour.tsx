@@ -415,7 +415,7 @@ export default function Vr() {
       </button>
 
       {/* Zoom Controls */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+      <div className="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 sm:gap-4">
         <button
           onClick={handleZoomIn}
           className="w-[35px] h-[35px] sm:w-[42px] sm:h-[42px] cursor-pointer hover:scale-105 transition-transform"
@@ -441,12 +441,12 @@ export default function Vr() {
       <div id="pan-container" className="w-full h-full"></div>
 
       {/* Custom Level/Area Dropdown */}
-      <div className="absolute bottom-24 left-36 sm:left-[24%] lg:left-[18%]  z-50">
+      <div className="absolute bottom-6 left-4 sm:bottom-24 sm:left-[24%] lg:left-[18%]  z-50">
         <div className="relative">
           {/* Dropdown Button */}
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center gap-3 px-8 py-2 bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-colors shadow-lg"
+            className="flex items-center gap-2 sm:gap-3 px-5 sm:px-8 py-1.5 sm:py-2 text-sm sm:text-base bg-black/50 backdrop-blur-md border border-white/10 text-white rounded-full font-medium hover:bg-black/60 transition-colors shadow-lg"
           >
             <span>Levels</span>
             <div className="bg-[#FF0000] rounded-full p-1 flex items-center justify-center">

@@ -21,6 +21,16 @@ const Availability = () => {
 
   const [hoveredFloor, setHoveredFloor] = useState<string | null>(null);
 
+  // On phone/tablet show the WHOLE building (fit), not a cropped/zoomed-in
+  // "cover" fill. The image and its SVG hotspot overlay switch together so
+  // the floor polygons stay aligned with the image at every size.
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+  useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <div className="relative w-full h-screen overflow-hidden bg-gray-900 font-sans">
       <style>{`
@@ -37,11 +47,11 @@ const Availability = () => {
         }
       `}</style>
       {/* 0. STATIC TOP RIGHT LOGO */}
-      <div className="absolute top-4 right-20 z-50 opacity-80 hover:opacity-100 transition-opacity">
+      <div className="absolute top-4 right-2 sm:right-6 lg:right-20 z-50 opacity-80 hover:opacity-100 transition-opacity">
         <img
           src={logo}  // put your SVG file in public folder
           alt="logo"
-          className="w-[220px] h-[110px]"
+          className="w-[120px] h-auto sm:w-[160px] lg:w-[220px] lg:h-[110px]"
         />
       </div>
 
@@ -83,18 +93,18 @@ const Availability = () => {
       >
         {/* Full screen container to eliminate side gaps */}
         <div className="relative w-screen h-screen">
-          {/* Building Image - object-cover to fill the entire screen */}
+          {/* Building Image - cover on desktop, contain (full view) on phone/tablet */}
           <img
             src={buildingImg}
             alt="Building"
-            className="w-full h-full object-cover pointer-events-none"
+            className={`w-full h-full pointer-events-none ${isDesktop ? "object-cover" : "object-contain"}`}
           />
 
-          {/* SVG Overlay - Matches object-cover behavior to keep polygons aligned */}
+          {/* SVG Overlay - matches the image's object-fit so polygons stay aligned */}
           <svg
             viewBox="0 0 1200 614"
             className="absolute inset-0 w-full h-full pointer-events-none"
-            preserveAspectRatio="xMidYMid slice"
+            preserveAspectRatio={isDesktop ? "xMidYMid slice" : "xMidYMid meet"}
           >
             {floorData.map((floor) => (
               <polygon
@@ -198,7 +208,7 @@ const Availability = () => {
           damping: 16,
           delay: showMainContent ? 0.6 : 0,
         }}
-        className="absolute right-20 top-[130px] -translate-y-1/2 z-30 w-[260px] rounded-2xl overflow-hidden"
+        className="absolute right-2 sm:right-6 lg:right-20 top-[130px] -translate-y-1/2 z-30 w-[130px] sm:w-[190px] lg:w-[260px] rounded-2xl overflow-hidden"
         style={{
           background: "linear-gradient(180deg, rgba(162, 185, 196, 0.45) 0%, rgba(66, 75, 78, 0.55) 100%)",
           backdropFilter: "blur(24px)",
@@ -209,27 +219,27 @@ const Availability = () => {
       >
         <div className="p-2 relative z-10">
           {/* Table Headers */}
-          <div className="flex items-center text-white text-[14px] tracking-[1px] font-normal py-0.5 mb-[10px] mr-1.5 rounded-full" style={{ background: "rgba(92, 107, 119, 0.9)" }}>
-            <span className="w-[56px] text-center flex-shrink-0">Floor</span>
+          <div className="flex items-center text-white text-[9px] sm:text-[11px] lg:text-[14px] tracking-[1px] font-normal py-0.5 mb-1.5 lg:mb-[10px] mr-1.5 rounded-full" style={{ background: "rgba(92, 107, 119, 0.9)" }}>
+            <span className="w-[34px] sm:w-[42px] lg:w-[56px] text-center flex-shrink-0">Floor</span>
             <div className="w-[1px] bg-white/20 self-stretch mx-[2px] my-1"></div>
             <span className="flex-1 text-center">Tower</span>
           </div>
 
           {/* Table Rows */}
-          <div className="flex flex-col gap-[6px] max-h-[calc(100vh-220px)] overflow-y-auto pr-1 custom-scroll">
+          <div className="flex flex-col gap-1 lg:gap-[6px] max-h-[calc(100vh-220px)] overflow-y-auto pr-1 custom-scroll">
             {floorData.map((floor, index) => {
               const isHovered = hoveredFloor === floor.level;
               return (
                 <div
                   key={index}
-                  className="flex items-center gap-[6px] cursor-pointer"
+                  className="flex items-center gap-1 lg:gap-[6px] cursor-pointer"
                   onMouseEnter={() => setHoveredFloor(floor.level)}
                   onMouseLeave={() => setHoveredFloor(null)}
                   onClick={() => navigate(`/unitplan/${encodeURIComponent(floor.level)}`, { state: { allFloors: floorData } })}
                 >
                   {/* Floor Number Pill */}
                   <div
-                    className={`w-[56px] flex-shrink-0 flex items-center justify-center py-0.5 rounded-full text-[14px] font-normal tracking-wide transition-all duration-300 ${isHovered ? "text-black" : (floor.level === "6th" || floor.level === "9th" ? "text-[#CDAE7F]" : "text-white")
+                    className={`w-[34px] sm:w-[42px] lg:w-[56px] flex-shrink-0 flex items-center justify-center py-0.5 rounded-full text-[9px] sm:text-[11px] lg:text-[14px] font-normal tracking-wide transition-all duration-300 ${isHovered ? "text-black" : (floor.level === "6th" || floor.level === "9th" ? "text-[#CDAE7F]" : "text-white")
                       }`}
                     style={{
                       background: isHovered ? "#CDAE7F" : "rgba(0, 0, 0, 0.65)",
@@ -243,7 +253,7 @@ const Availability = () => {
 
                   {/* Area Pill */}
                   <div
-                    className={`flex-1 flex items-center justify-center py-0.5 rounded-full text-[14px] tracking-wide transition-all duration-300 ${isHovered ? "text-black" : (floor.level === "6th" || floor.level === "9th" ? "text-[#CDAE7F]" : "text-white/90")
+                    className={`flex-1 flex items-center justify-center py-0.5 rounded-full text-[9px] sm:text-[11px] lg:text-[14px] tracking-wide whitespace-nowrap transition-all duration-300 ${isHovered ? "text-black" : (floor.level === "6th" || floor.level === "9th" ? "text-[#CDAE7F]" : "text-white/90")
                       }`}
                     style={{
                       background: isHovered ? "#CDAE7F" : "rgba(0, 0, 0, 0.40)",

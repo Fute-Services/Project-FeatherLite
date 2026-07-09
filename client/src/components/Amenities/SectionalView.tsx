@@ -573,7 +573,7 @@ import seesawIconImg from "../../assets/AvailabilityPage/icons/Seesaw.svg";
 import cuttingEdgeIconImg from "../../assets/AvailabilityPage/icons/3D Model.svg";
 
 // @ts-ignore
-import cafeteriaImg from "../../assets/amenities/popup/Cafeteria_250226.png";
+import cafeteriaImg from "../../assets/amenities/popup/Cafeteria_250226.jpeg";
 // @ts-ignore
 import kidsPlayPopupImg from "../../assets/amenities/popup/Copy of Kids Play.jpg";
 // @ts-ignore
@@ -835,6 +835,16 @@ const SectionalView = () => {
   const [bgChanged, setBgChanged] = useState(false);
   const [hoveredAmenity, setHoveredAmenity] = useState<string | null>(null);
 
+  // On phone/tablet show the WHOLE building (fit), not a cropped/zoomed-in
+  // "cover" fill. The image and its SVG hotspot overlay switch together so
+  // the amenity markers stay aligned with the image at every size.
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+  useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const navigate = useNavigate();
 
   const [activePopupImage, setActivePopupImage] = useState<string | null>(null);
@@ -928,7 +938,7 @@ const SectionalView = () => {
         <img
           src={buildingImg}
           alt="Featherlite Signature Building"
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${isDesktop ? "object-cover" : "object-contain"}`}
         />
       </motion.div>
 
@@ -936,7 +946,7 @@ const SectionalView = () => {
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
         className="absolute inset-0 w-full h-full z-30 pointer-events-none"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio={isDesktop ? "xMidYMid slice" : "xMidYMid meet"}
         aria-hidden="true"
       >
         <defs>
@@ -1160,6 +1170,8 @@ const SectionalView = () => {
             <motion.video
               src={activePopupVideo}
               autoPlay
+              muted
+              playsInline
               controls
               loop
               className="w-full h-full object-contain"

@@ -14,3 +14,27 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
+/* ── Responsive fit (all screen sizes) ─────────────────────────────
+   Never allow a horizontal scrollbar on any device. */
+html, body, #root {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Full-screen (kiosk) pages use h-screen / min-h-screen (100vh). On mobile
+   browsers 100vh includes the area behind the address bar, so content gets
+   pushed off / cut. The dynamic viewport unit (dvh) makes those pages fit the
+   actually-visible area. Desktop is unaffected (100dvh === 100vh there). */
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}

@@ -17,8 +17,13 @@ import TechnicalSpecificationCard from "../../components/Media/TechnicalSpecific
 // @ts-ignore
 import backImg from "../../assets/unit/back.png";
 
-// Initialize PDF.js worker via CDN to bypass production MIME type issues
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// Bundle the PDF.js worker locally (same-origin) instead of fetching it from
+// a CDN on every first load — removes an extra DNS/TLS/network round-trip
+// before the brochure can start rendering.
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url,
+).toString();
 
 function Media() {
   const navigate = useNavigate();
@@ -49,24 +54,24 @@ function Media() {
         initial={{ x: 300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute top-6 right-10 z-20 pointer-events-none"
+        className="absolute top-4 right-4 sm:top-6 sm:right-10 z-20 pointer-events-none"
       >
         <div className="absolute inset-[-40px] blur-[40px] rounded-full -z-10" />
         <img
           src={logo}
           alt="Logo"
-          className="relative h-24 w-auto object-contain drop-shadow-2xl"
+          className="relative h-16 sm:h-20 lg:h-24 w-auto object-contain drop-shadow-2xl"
         />
       </motion.div>
 
       {/* Main Content Center: Bottom to Top */}
-      <div className="w-full h-full flex items-center justify-center pt-[130px]">
+      <div className="w-full h-full flex items-center justify-center px-4 md:px-0 pt-[90px] sm:pt-[110px] lg:pt-[130px]">
         <motion.div
           initial={{ y: 800, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
           // 2. INCREASED max-w-[750px] to max-w-[1200px] to fit the 5 cards
-          className="flex h-[60vh] max-h-[550px] w-full max-w-[1200px] relative z-10 shadow-2xl"
+          className="flex flex-col md:flex-row h-[70vh] md:h-[60vh] max-h-[550px] w-full max-w-[1200px] relative z-10 shadow-2xl"
         >
           <BrochureCard onClick={() => setIsBrochureOpen(true)} />
           <GalleryCard onClick={() => navigate("/media/gallery")} />
