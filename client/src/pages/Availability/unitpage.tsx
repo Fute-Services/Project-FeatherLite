@@ -635,9 +635,9 @@ export default function UnitPlanPage() {
             </div>
 
             {/* BUA Graphic */}
-            <div className="absolute right-[12%] sm:right-[15%] lg:right-[12%] xl:right-[10%] 2xl:right-[120px] top-[40%] sm:top-[35%] lg:top-[38%] 2xl:top-[40%] -translate-y-1/2 z-20 pointer-events-none">
+            {/* <div className="absolute right-[12%] sm:right-[15%] lg:right-[12%] xl:right-[10%] 2xl:right-[120px] top-[40%] sm:top-[35%] lg:top-[38%] 2xl:top-[40%] -translate-y-1/2 z-20 pointer-events-none">
                 <img src={buaImg} alt="Total BUA" className="w-[80px] sm:w-[110px] lg:w-[130px] xl:w-[145px] 2xl:w-[160px] object-contain drop-shadow-xl" />
-            </div>
+            </div> */}
 
             {currentUnit.image2D && (
             <div
