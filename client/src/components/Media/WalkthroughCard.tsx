@@ -24,9 +24,9 @@ const WalkthroughCard: React.FC<WalkthroughCardProps> = ({ onClick }) => {
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 pointer-events-none" />
-      <div className="relative h-full flex flex-col items-center justify-start py-3 sm:py-6 md:py-12 z-20 text-center">
-        <h2 className="text-[15px] sm:text-[18px] md:text-[24px] font-light tracking-wide drop-shadow-md">Walk-through</h2>
-        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[13px] sm:text-[16px] md:text-[20px] font-light tracking-wide lowercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md">click</p>
+      <div className="relative h-full flex flex-col items-center justify-start py-12 z-20 text-center">
+        <h2 className="text-[24px] font-light tracking-wide drop-shadow-md">Walk-through</h2>
+        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20px] font-light tracking-wide lowercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md">click</p>
       </div>
     </div>
   );

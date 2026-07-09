@@ -38,17 +38,3 @@ html, body, #root {
     min-height: 100dvh;
   }
 }
-
-/* Brochure PDF (react-pdf inside the flipbook): the page canvas is rasterized
-   at a fixed pixel size, but the flipbook cell it sits in resizes to fit the
-   modal (react-pageflip's "stretch" mode). Without this, at some container
-   sizes the canvas is bigger than its cell and gets cropped by the cell's
-   overflow-hidden. Scaling the canvas down to fit (like a normal image)
-   keeps the whole page visible and centered at every size. */
-.react-pdf__Page__canvas {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain;
-}

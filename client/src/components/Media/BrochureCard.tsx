@@ -29,12 +29,12 @@ const BrochureCard: React.FC<BrochureCardProps> = ({ onClick }) => {
 
       <div className="absolute inset-0 " />
 
-      <div className="relative h-full flex flex-col items-center justify-between py-3 sm:py-6 md:py-12 px-3 md:px-6 text-center z-20">
-        <h2 className="text-[15px] sm:text-[18px] md:text-[24px] font-light tracking-wide">Brochure</h2>
-        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[13px] sm:text-[16px] md:text-[20px] font-light tracking-wide lowercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">click</p>
-        <div className="mb-1 sm:mb-3 md:mb-8 text-[#a3b3bd] flex flex-col gap-1">
-          <p className="text-[10px] sm:text-[13px] md:text-[16px] font-bold tracking-wide">Work. Play. Live.</p>
-          <p className="text-[10px] sm:text-[13px] md:text-[16px] font-bold tracking-wide">Better.</p>
+      <div className="relative h-full flex flex-col items-center justify-between py-12 px-6 text-center z-20">
+        <h2 className="text-[24px] font-light tracking-wide">Brochure</h2>
+        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20px] font-light tracking-wide lowercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">click</p>
+        <div className="mb-8 text-[#a3b3bd] flex flex-col gap-1">
+          <p className="text-[16px] font-bold tracking-wide">Work. Play. Live.</p>
+          <p className="text-[16px] font-bold tracking-wide">Better.</p>
         </div>
       </div>
     </div>
