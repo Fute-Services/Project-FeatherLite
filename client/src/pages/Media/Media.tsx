@@ -17,13 +17,8 @@ import TechnicalSpecificationCard from "../../components/Media/TechnicalSpecific
 // @ts-ignore
 import backImg from "../../assets/unit/back.png";
 
-// Bundle the PDF.js worker locally (same-origin) instead of fetching it from
-// a CDN on every first load — removes an extra DNS/TLS/network round-trip
-// before the brochure can start rendering.
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
-).toString();
+// Initialize PDF.js worker via CDN to bypass production MIME type issues
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 function Media() {
   const navigate = useNavigate();
