@@ -6,7 +6,6 @@ import zoomBtnImg from '../../assets/unit/zoom.png';
 import minusBtnImg from '../../assets/unit/minus.png';
 import zoomoutBtnImg from '../../assets/unit/zoomout.png';
 import verticalLinePanel from '../../assets/unit/vertical_line_panel.png';
-import boxes from '../../assets/Media/boxes.png';
 import upIcon from '../../assets/unit/up_icon.png';
 import downIcon from '../../assets/unit/down_icon.png';
 import bottomFloorNameImg from '../../assets/unit/Bottom_floor_name.png';
@@ -325,11 +324,11 @@ export default function UnitPlanPage() {
                 style={{ background: 'radial-gradient(ellipse at center, rgba(115, 227, 255, 0.25) 0%, rgba(115, 227, 255, 0) 65%)' }} />
 
             {/* Decorative Boxes */}
-            <img
+            {/* <img
                 src={boxes}
                 className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[60%] pointer-events-none z-0"
                 alt="Decorative Boxes"
-            />
+            /> */}
 
             {/* TEMPORARY DEBUGGER OVERLAY */}
             {/* <div className="fixed bottom-[120px] left-[120px] z-[2000] bg-black/80 text-white p-4 rounded text-xs pointer-events-none font-mono">
