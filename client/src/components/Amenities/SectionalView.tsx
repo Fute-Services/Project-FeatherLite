@@ -1147,21 +1147,35 @@ const SectionalView = () => {
       )}
 
       {/* ── AMENITIES POPUP MODAL ────────────────────────────────────── */}
+      <AnimatePresence>
       {(activePopupImage || activePopupVideo) && (
-        <div className="absolute inset-0 z-50 bg-black flex items-center justify-center animate-in fade-in duration-300">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 z-50 bg-black flex items-center justify-center"
+        >
           {activePopupVideo ? (
-            <video
+            <motion.video
               src={activePopupVideo}
               autoPlay
               controls
               loop
               className="w-full h-full object-contain"
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             />
           ) : (
-            <img
+            <motion.img
+              key={activePopupImage}
               src={activePopupImage!}
               alt={activePopupTitle}
               className="w-full h-full object-cover"
+              initial={{ opacity: 0, scale: 1.12 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             />
           )}
 
@@ -1201,8 +1215,9 @@ const SectionalView = () => {
               </g>
             </svg>
           </button>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 };
