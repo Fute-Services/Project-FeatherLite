@@ -6,7 +6,6 @@ import zoomBtnImg from '../../assets/unit/zoom.png';
 import minusBtnImg from '../../assets/unit/minus.png';
 import zoomoutBtnImg from '../../assets/unit/zoomout.png';
 import verticalLinePanel from '../../assets/unit/vertical_line_panel.png';
-import buaImg from '../../assets/unit/BUA.png';
 import boxes from '../../assets/Media/boxes.png';
 import upIcon from '../../assets/unit/up_icon.png';
 import downIcon from '../../assets/unit/down_icon.png';
