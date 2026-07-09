@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-const buildingImg = "https://res.cloudinary.com/db0f2ofgf/image/upload/v1777965947/main_image_l1tzgg.png";
+const buildingImg = "https://res.cloudinary.com/db0f2ofgf/image/upload/f_auto,q_auto/v1777965947/main_image_l1tzgg.png";
 import GradientImg from "../../assets/AvailabilityPage/Gradient-Background.png";
 import logo from "../../assets/logo.png"
 import floorData from '../../data/floorData.json';
@@ -168,6 +168,7 @@ const Availability = () => {
                         const lvl = floorData.find(f => f.level === hoveredFloor)?.level;
                         if (!lvl) return '';
                         if (lvl === '0') return 'Ground Floor';
+                        if (lvl === '11') return 'Terrace';
                         if (lvl.toLowerCase().includes('refuge')) return lvl;
                         return `${lvl} Floor`;
                       })()}

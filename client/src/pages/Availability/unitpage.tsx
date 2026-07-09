@@ -137,6 +137,10 @@ export default function UnitPlanPage() {
 
     // Decode ID (e.g. "9%20Refuge" -> "9 Refuge")
     const floorId = id ? decodeURIComponent(id) : '';
+    // The topmost level is the Terrace: it has no rooms / side panel / 2D plan,
+    // so hide those UI pieces and label it "Terrace" instead of "11".
+    const isTerrace = String(floorId).toLowerCase() === "11" || String(floorId).toLowerCase() === "11th";
+    const displayFloorName = isTerrace ? "Terrace" : floorId;
 
     const isLoading = floorData.length === 0;
 
@@ -345,13 +349,14 @@ export default function UnitPlanPage() {
                     backgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                 }}>
-                    <span className="capitalize text-[60px] sm:text-[75px] font-medium leading-none">{floorId}</span>
+                    <span className="capitalize text-[60px] sm:text-[75px] font-medium leading-none">{displayFloorName}</span>
                     {/* <span className="text-[20px] sm:text-[28px] mr-2 leading-none relative -top-6">th</span> */}
                     <span className="text-[50px] sm:text-[50px] font-light leading-none ml-3">Floor</span>
                 </h1>
             </div>
 
             {/* Top Left Floor Toggle */}
+            {!isTerrace && (
             <div
                 className={`fixed left-4 sm:left-6 lg:left-8 xl:left-[90px] top-[80px] sm:top-[100px] xl:top-[120px] z-[1100] flex flex-col items-center cursor-pointer transition-all duration-300 hover:scale-105 ${zoom > (zoomCoordinates[floorId.toLowerCase()]?.scale || 2) ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                 onClick={() => setIsPanelOpen(!isPanelOpen)}
@@ -377,6 +382,7 @@ export default function UnitPlanPage() {
                     className="w-[20px] sm:w-[24px] object-contain drop-shadow-md"
                 />
             </div>
+            )}
 
             {/* Top Right Logo */}
             <div className="absolute top-8 sm:top-12 right-10 sm:right-16 z-20 pointer-events-none hidden sm:block">
@@ -391,6 +397,7 @@ export default function UnitPlanPage() {
             </button>
 
             {/* Side Panel Wrapper (Fixed Position) */}
+            {!isTerrace && (
             <div
                 className={`fixed left-3.5 sm:left-5 lg:left-[24px] xl:left-[30px] top-[140px] sm:top-[160px] lg:top-[170px] xl:top-[200px] z-[1000] bg-transparent max-w-[calc(100vw-28px)] sm:max-w-none
             ${selectedImageIndex === 0 || selectedImageIndex === 1 ? 'visible' : 'invisible'}`}
@@ -434,6 +441,7 @@ export default function UnitPlanPage() {
                     </div>
                 </div>
             </div>
+            )}
 
             {/* Main Content */}
             <div
@@ -631,6 +639,7 @@ export default function UnitPlanPage() {
                 <img src={buaImg} alt="Total BUA" className="w-[80px] sm:w-[110px] lg:w-[130px] xl:w-[145px] 2xl:w-[160px] object-contain drop-shadow-xl" />
             </div>
 
+            {currentUnit.image2D && (
             <div
                 ref={minimapRef}
                 className={`absolute bg-[#1D7AD9] flex items-center justify-center z-30 overflow-hidden cursor-pointer transition-all duration-300
@@ -651,6 +660,7 @@ export default function UnitPlanPage() {
                     </span>
                 </div>
             </div>
+            )}
         </div>
     );
 }
